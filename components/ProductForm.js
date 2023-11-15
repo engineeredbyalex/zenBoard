@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import Spinner from "@/components/Spinner";
 import { ReactSortable } from "react-sortablejs";
+import Image from "next/image";
 
 export default function ProductForm({
   _id,
@@ -203,7 +204,9 @@ export default function ProductForm({
                   Delete
                 </div>
                 <div className="h-[10rem] bg-white p-4 shadow-sm rounded-sm border border-gray-200">
-                  <img
+                  <Image
+                    width={200}
+                    height={200}
                     src={link}
                     alt=""
                     className="rounded-lg w-full h-full object-cover"

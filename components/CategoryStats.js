@@ -49,7 +49,7 @@ export default function Stats() {
 
     useEffect(() => {
         calculateCategoryCounts();
-    }, [orders, categories]);
+    }, [orders, categories, calculateCategoryCounts]);
 
     return (
         <div>

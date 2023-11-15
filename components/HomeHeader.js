@@ -8,6 +8,7 @@ import { AiOutlineCaretDown, AiOutlineBell } from "react-icons/ai";
 import Link from "next/link";
 // 
 import { signOut } from "next-auth/react";
+import Image from "next/image";
 
 export default function HomeHeader() {
   const { data: session } = useSession();
@@ -50,7 +51,7 @@ export default function HomeHeader() {
               </ul>
             </div>
           </div>
-          <img src={session?.user?.image} alt="" className="w-[40px] h-[40px] rounded-xl" />
+          <Image width={50} height={50} src={session?.user?.image} alt="" className="w-[40px] h-[40px] rounded-xl" />
           <span className="px-2">
             <p className="grey_text">{session?.user?.name}</p>
           </span>

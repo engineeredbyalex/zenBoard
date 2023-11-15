@@ -42,7 +42,7 @@ export default function CityStats() {
 
     useEffect(() => {
         calculateCityCounts();
-    }, [orders]);
+    }, [orders, calculateCityCounts]);
 
     return (
         <div>
