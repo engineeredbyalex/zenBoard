@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1{
+    @apply text-[120px]
+}
+h2{
+    @apply text-[75px]
+}
+h3{
+    @apply text-[46px]
+}
+h4{
+    @apply text-[30px]
+}
+h5{
+    @apply text-[18px]
+}
+h6{
+    @apply text-[16px]
+}
+p{
+    @apply text-[14px]
+}
+.dark_blue_text{
+    color: rgb(31, 59, 138),
+}
+.medium_blue_text{
+    color: #3d63ca;
+}
+.light_blue_text{
+    color: rgba(174, 194, 250, 0.151);
+}
+.grey_text{
+    color: #929292;
+}
+.white_text{
+    color: #fff;
+}
+.black_text{
+    color: #000;
+}
+.dark_blue_background{
+    background: rgb(31, 59, 138),
+}
+.medium_blue_background{
+    background: rgba(46, 53, 255);
+}
+.light_blue_background{
+    background-color: rgba(174, 194, 250, 0.151);
+}
+.green_text {
+    color: #61ef44;
+}
+.red_text {
+    color: #fc2929;
+}
+.red_background {
+    background-color: #fc2929;
+}
+.btn-primary{
+    display: flex;
+     align-items: center; 
+     justify-content: center;
+    width: 10rem;
+    height: 3rem;
+   background: rgb(31, 59, 138);
+   color:#fff;
+   padding: 1rem 2rem;
+}
+.basic {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.basic th, .basic td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.basic th {
+  background-color: #f2f2f2;
+}
+
+.btn-default,
+.btn-red {
+  display: inline-block;
+  padding: 8px;
+  margin-right: 8px;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-default {
+  background-color: rgb(31, 59, 138);
+}
+
+.btn-red {
+  background-color: #fc2929;
+}
