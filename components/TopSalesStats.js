@@ -49,7 +49,7 @@ export default function TopSalesStats() {
 
     useEffect(() => {
         calculateProductCounts();
-    }, [orders, products, calculateProductCounts]);
+    }, [orders, products,]);
 
     return (
         <div>
