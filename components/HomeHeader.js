@@ -22,12 +22,12 @@ export default function HomeHeader() {
     <div className=" h-[10vh] flex items-center justify-between">
       <h2>
         <div className="flex gap-2 items-center">
-          <img src={session?.user?.image} alt="" className="w-6 h-6 rounded-md sm:hidden" />
+          <Image width={50} height={50} src={session?.user?.image} alt="" className="w-6 h-6 rounded-md sm:hidden" />
           <div>
             <h4 className="dark_blue_text">
               Hello, <b>{session?.user?.name}</b>
             </h4>
-            <h5 className="grey_text">Here's what's happening with your store today.</h5>
+            <h5 className="grey_text">Here s what s happening with your store today.</h5>
           </div>
         </div>
       </h2>
