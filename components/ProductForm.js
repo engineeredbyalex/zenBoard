@@ -204,9 +204,8 @@ export default function ProductForm({
                   Delete
                 </div>
                 <div className="h-[10rem] bg-white p-4 shadow-sm rounded-sm border border-gray-200">
-                  <Image
-                    width={200}
-                    height={200}
+                  <img
+
                     src={link}
                     alt=""
                     className="rounded-lg w-full h-full object-cover"
