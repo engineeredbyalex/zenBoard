@@ -18,22 +18,21 @@ export default function OrdersPage() {
 
   return (
     <Layout>
-      <h1>Comenzi</h1>
+      <h3 className="uppercase grey_text">Orders</h3>
 
       <div className="mb-10">
-        <h2 className="text-2xl">
-          Stripe
-        </h2>
+        <h4 className="uppercase grey_text font-light">Stripe</h4>
         <div className="flex flex-row items-start gap-[15px]">
-          <button className="bg-black p-2 rounded-lg text-white max-w-[150px]"><Link target="_blank" href={'https://dashboard.stripe.com/payments'}>Vezi comenzi pe Stripe</Link></button>
-          <button className="bg-black p-2 rounded-lg text-white max-w-[150px]"><Link href={'https://dashboard.stripe.com/balance/overview'}>Vezi blanță pe Stripe</Link></button>
-          <button className="bg-black p-2 rounded-lg text-white max-w-[150px]"><Link href={'https://dashboard.stripe.com/customers'}>Vezi clienți pe Stripe</Link></button>
+          <button className="bg-black p-2 rounded-lg text-white w-[15rem]"><Link target="_blank" href={'https://dashboard.stripe.com/payments'}>Vezi comenzi pe Stripe</Link></button>
+          <button className="bg-black p-2 rounded-lg text-white w-[15rem]"><Link href={'https://dashboard.stripe.com/balance/overview'}>Vezi blanță pe Stripe</Link></button>
+          <button className="bg-black p-2 rounded-lg text-white w-[15rem]"><Link href={'https://dashboard.stripe.com/customers'}>Vezi clienți pe Stripe</Link></button>
         </div>
       </div>
       <table className="basic">
         <thead>
           <tr>
             <th>Dată</th>
+            <th>Status plată</th>
             <th>Client</th>
             <th>Produse</th>
           </tr>

@@ -49,28 +49,32 @@ function SettingsPage() {
 
   return (
     <Layout>
-      <h1>Settings</h1>
+      <h3 className="uppercase grey_text">Settings</h3>
       {isLoading && <Spinner />}
       {!isLoading && (
-        <>
-          <label>Featured product</label>
-          <select value={featuredProductId} onChange={ev => setFeaturedProductId(ev.target.value)}>
-            {products.length > 0 && products.map(product => (
-              <option key={product._id} value={product._id}>{product.title}</option>
-            ))}
-          </select>
-          <label>Shipping price (in USD)</label>
-          <input
-            type="number"
-            value={shippingFee}
-            onChange={ev => setShippingFee(ev.target.value)}
-          />
+        <div className="flex flex-col gap-5">
+          <div className="flex flex-row gap-10">
+            <label>Featured product</label>
+            <select value={featuredProductId} onChange={ev => setFeaturedProductId(ev.target.value)}>
+              {products.length > 0 && products.map(product => (
+                <option key={product._id} value={product._id}>{product.title}</option>
+              ))}
+            </select>
+          </div>
+          <div className="flex flex-row gap-10">
+            <label>Shipping price (in USD)</label>
+            <input
+              type="number"
+              value={shippingFee}
+              onChange={ev => setShippingFee(ev.target.value)}
+            />
+          </div>
           <div>
-            <button onClick={saveSettings} className="btn-primary">
+            <button onClick={saveSettings} className="btn-primary rounded-lg">
               Save settings
             </button>
           </div>
-        </>
+        </div>
       )}
     </Layout>
   );

@@ -107,15 +107,16 @@ function Categories() {
 
   return (
     <Layout>
-      <h1>Categories</h1>
-      <label>
+      <h3 className="uppercase grey_text">Categories</h3>
+      <label className=" uppercase grey_text mt-10 mb-10">
         {editedCategory
           ? `Edit category ${editedCategory.name}`
           : 'Create new category'}
       </label>
       <form onSubmit={saveCategory}>
-        <div className="flex gap-1">
+        <div className="flex gap-1 mt-10 mb-10">
           <input
+            className="w-[20rem] light_blue_background py-3 px-3"
             type="text"
             placeholder={'Category name'}
             onChange={ev => setName(ev.target.value)}
@@ -123,14 +124,14 @@ function Categories() {
           <select
             onChange={ev => setParentCategory(ev.target.value)}
             value={parentCategory}>
-            <option value="">No parent category</option>
+            <option className="w-[20rem]" value="">No parent category</option>
             {categories.length > 0 && categories.map(category => (
               <option key={category._id} value={category._id}>{category.name}</option>
             ))}
           </select>
         </div>
         <div className="mb-2">
-          <label className="block">Properties</label>
+          <label className="block uppercase grey_text">Properties</label>
           <button
             onClick={addProperty}
             type="button"
@@ -175,7 +176,7 @@ function Categories() {
               className="btn-default">Cancel</button>
           )}
           <button type="submit"
-            className="btn-primary py-1">
+            className="btn-primary py-1 rounded-lg">
             Save
           </button>
         </div>

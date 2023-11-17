@@ -50,26 +50,25 @@ function AdminsPage() {
 
   return (
     <Layout>
-      <h1>Admins</h1>
-      <h2>Add new admin</h2>
+      <h3 className="uppercase grey_text">Admins</h3>
+      <h4 className="uppercase grey_text">Add new Admin</h4>
       <form onSubmit={addAdmin}>
-        <div className="flex gap-2">
+        <div className="flex gap-2 mt-10">
           <input
             type="text"
-            className="mb-0"
+            className="mb-0 w-[15rem]"
             value={email}
             onChange={ev => setEmail(ev.target.value)}
-            placeholder="google email" />
+            placeholder="Google Email" />
           <button
             type="submit"
-            className="btn-primary py-1 whitespace-nowrap">
+            className="btn-primary py-1 whitespace-nowrap rounded-lg">
             Add admin
           </button>
         </div>
       </form>
-
-      <h2>Existing admins</h2>
-      <table className="basic">
+      <h4 className="uppercase grey_text mt-10">Existing admins</h4>
+      <table className="basic ">
         <thead>
           <tr>
             <th className="text-left">Admin google email</th>

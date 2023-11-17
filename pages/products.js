@@ -16,14 +16,18 @@ export default function Products() {
   }, []);
   return (
     <Layout>
-      <Link className="btn-primary uppercase font-bold" href={'/products/new'}>Add new product</Link>
+      <h3 className="uppercase grey_text">Products</h3>
+      <div className="flex gap-10">
+        <Link className="btn-primary uppercase font-bold w-[15rem]" href={'/products/new'}>Add new product</Link>
+        <Link className="btn-primary uppercase font-bold w-[15rem]" href={'/products/view'}>View all products</Link>
+      </div>
       <table className="basic mt-2">
         <thead>
           <tr>
             <td>
-              <h4 className="uppercase grey_text">
+              <h5 className="uppercase grey_text">
                 Product name
-              </h4>
+              </h5>
             </td>
             <td></td>
           </tr>
@@ -41,9 +45,9 @@ export default function Products() {
           {products.map(product => (
             <tr key={product._id}>
               <td>
-                <h5 className="font-normla uppercase dark_blue_text">
+                <p className="font-normla uppercase dark_blue_text">
                   {product.title}
-                </h5>
+                </p>
               </td>
               <td>
                 <Link className="btn-default" href={'/products/edit/' + product._id}>
