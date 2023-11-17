@@ -4,7 +4,7 @@ import Link from "next/link";
 import Button from "./Button";
 import Image from "next/image";
 import { AiOutlineMenu } from "react-icons/ai"
-
+import LogoNav from "@/public/logoBig.png"
 
 export default function Header() {
 
@@ -15,15 +15,14 @@ export default function Header() {
       <div className="w-full flex items-center justify-center h-[8vh] gap-[60px] absolute top-0">
         <div className="w-1/2 lg:w-auto flex items-center justify-start absolute left-[30px] lg:relative">
           <h2 >
-            {/* <Image alt="logo" width={150} src={LogoNav}></Image> */}
+            <Image alt="logo" width={150} src={LogoNav}></Image>
           </h2>
         </div>
         <div className={toggle ? ("text-white left-[0px] right-0 bottom-0 top-[20rem] flex flex-col relative lg:flex gap-[30px] items-center") : ("text-white hidden lg:flex gap-[30px]")}>
-          <Link className="text-[20px] nav_item" href={'/'}>Acasă</Link>
-          <Link className="text-[20px] nav_item" href={'/products'}>Produse</Link>
-          <Link className="text-[20px] nav_item" href={'/categories'}>Catalog</Link>
-          <Link className="text-[20px] nav_item" href={'/aboutus'}>Despre noi</Link>
-          {/* <Link className="text-[20px] nav_item" href={'/blog'}>Blog</Link> */}
+          <div className="text-[20px] nav_item" href={'/'}>Acasă</div>
+          <div className="text-[20px] nav_item" href={'/products'}>Produse</div>
+          <div className="text-[20px] nav_item" href={'/categories'}>Catalog</div>
+          <div className="text-[20px] nav_item" href={'/aboutus'}>Despre noi</div>
 
         </div>
         <div className={toggle ? ("text-white lg:flex gap-[15px] absolute top-[80vh] ") : ("text-white hidden lg:flex  gap-[15px] ")}>

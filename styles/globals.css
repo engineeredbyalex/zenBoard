@@ -88,13 +88,18 @@ p{
 
 .btn-default,
 .btn-red {
-  display: inline-block;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
   padding: 8px;
   margin-right: 8px;
   text-decoration: none;
   color: #fff;
   border-radius: 4px;
   cursor: pointer;
+      width: 15rem;
+    height: 3rem;
 
 }
 
