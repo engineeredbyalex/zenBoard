@@ -15,10 +15,10 @@ function StatsBox(props) {
                 </h4>
                 <div className='flex flex-row w-full items-center justify-between'>
                     <p className={`white_text uppercase  ${textColorMonth}`}>
-                        {props.percent_value}% this month
+                        {props.percent_value}% această lună
                     </p>
                     <p className={`white_text uppercase mr-5  ${textColorWeek}`}>
-                        {props.value_week}% this week
+                        {props.value_week}% această săptamână
                     </p>
                 </div>
             </div>

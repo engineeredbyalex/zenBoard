@@ -52,15 +52,15 @@ export default function Stats() {
     }, [orders, categories,]);
 
     return (
-        <div>
-            <h4 className="dark_blue_text bold">Categories</h4>
+        <div className="h-[30vh] w-[20rem] flex flex-col items-center justify-start text-center">
+            <h4 className="black_text  font-medium uppercase">Categorii</h4>
             <div>
                 {categoryCounts.map(({ categoryId, count }) => {
                     const category = categories.find(category => category._id === categoryId);
                     return (
                         <div key={categoryId}>
-                            <p className="grey_text">Name: {category ? category.name : 'Unknown'}</p>
-                            <p className="grey_text">Count: {count}</p>
+                            <p className="grey_text">Nume: {category ? category.name : 'Unknown'}</p>
+                            <p className="grey_text">Cantitate: {count}</p>
                         </div>
                     );
                 })}

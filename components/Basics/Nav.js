@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 // 
 import { signOut } from "next-auth/react";
 // 
-import Logo from "@/components/Logo";
+import Logo from "@/components/Basics/Logo";
 // 
 import { AiOutlineAppstore } from "react-icons/ai";
 import { AiOutlineShop } from "react-icons/ai";
@@ -26,46 +26,46 @@ export default function Nav({ show }) {
     await signOut();
   }
   return (
-    <aside className={(show ? 'left-0' : '-left-full') + " top-0 grey_text light_blue_background p-4 fixed w-full  h-screen md:static md:w-auto transition-all"}>
+    <aside className={(show ? 'left-0' : '-left-full') + " top-0 grey_text bg-white p-4 fixed w-full  h-full md:static md:w-auto transition-all z-[3]"}>
       <div className="mb-4 ">
         <Logo />
       </div>
-      <nav className="flex flex-col gap-2 ">
+      <nav className="flex flex-col gap-2 mt-10 ">
         <Link href={'/'} className={pathname === '/' ? activeLink : inactiveLink}>
           <div className={pathname === '/' ? activeIcon : inactiveIcon}>
             <AiOutlineAppstore size={20} />
           </div>
-          Dashboard
+          Acasă
         </Link>
         <Link href={'/products'} className={pathname.includes('/products') ? activeLink : inactiveLink}>
           <div className={pathname.includes('/products') ? activeIcon : inactiveIcon}>
             <AiOutlineShop size={20} />
           </div>
-          Products
+          Produse
         </Link>
         <Link href={'/categories'} className={pathname.includes('/categories') ? activeLink : inactiveLink}>
           <div className={pathname.includes('/categories') ? activeIcon : inactiveIcon}>
             <AiOutlineFolderOpen size={20} />
           </div>
-          Categories
+          Categorii
         </Link>
         <Link href={'/orders'} className={pathname.includes('/orders') ? activeLink : inactiveLink}>
           <div className={pathname.includes('/orders') ? activeIcon : inactiveIcon}>
             <AiOutlineShoppingCart size={20} />
           </div>
-          Orders
+          Comenzi
         </Link>
         <Link href={'/admins'} className={pathname.includes('/admins') ? activeLink : inactiveLink}>
           <div className={pathname.includes('/admins') ? activeIcon : inactiveIcon}>
             <AiOutlineUsergroupAdd size={20} />
           </div>
-          Admins
+          Administratori
         </Link>
         <Link href={'/settings'} className={pathname.includes('/settings') ? activeLink : inactiveLink}>
           <div className={pathname.includes('/settings') ? activeIcon : inactiveIcon}>
             <AiFillSetting size={20} />
           </div>
-          Settings
+          Setări
         </Link>
       </nav>
     </aside>

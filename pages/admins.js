@@ -1,7 +1,7 @@
-import Layout from "@/components/Layout";
+import Layout from "@/components/Layout/Layout";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Spinner from "@/components/Spinner";
+import Spinner from "@/components/Basics/Spinner";
 import { prettyDate } from "@/lib/date";
 
 function AdminsPage() {
@@ -50,8 +50,8 @@ function AdminsPage() {
 
   return (
     <Layout>
-      <h3 className="uppercase grey_text">Admins</h3>
-      <h4 className="uppercase grey_text">Add new Admin</h4>
+      <h3 className="uppercase grey_text">Administratori</h3>
+      <h4 className="uppercase grey_text">Adaugă un administrator nou</h4>
       <form onSubmit={addAdmin}>
         <div className="flex gap-2 mt-10">
           <input
@@ -63,15 +63,15 @@ function AdminsPage() {
           <button
             type="submit"
             className="btn-primary py-1 whitespace-nowrap rounded-lg">
-            Add admin
+            Adaugă administrator
           </button>
         </div>
       </form>
-      <h4 className="uppercase grey_text mt-10">Existing admins</h4>
+      <h4 className="uppercase grey_text mt-10">Administratori existenți</h4>
       <table className="basic ">
         <thead>
           <tr>
-            <th className="text-left">Admin google email</th>
+            <th className="text-left">Adresă G-Mail administrator</th>
             <th></th>
             <th></th>
           </tr>
@@ -96,7 +96,7 @@ function AdminsPage() {
                 <button
                   onClick={() => deleteAdmin(adminEmail._id, adminEmail.email)}
                   className="btn-red">
-                  Delete
+                  Șterge
                 </button>
               </td>
             </tr>

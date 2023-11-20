@@ -1,7 +1,7 @@
 import { useSession, signIn, signOut } from "next-auth/react"
-import Nav from "./Nav";
+import Nav from "../Basics/Nav";
 import { useState } from "react";
-import Logo from "./Logo";
+import Logo from "../Basics/Logo";
 import { AiOutlineMenu } from "react-icons/ai"
 
 
@@ -20,9 +20,9 @@ export default function Layout({ children }) {
 
   return (
     <div className="bg-white min-h-screen ">
-      <div className=" md:hidden flex items-center p-4 absolute left-0">
+      <div className=" md:hidden flex items-center p-5 absolute left-0 top-0 z-[4]">
         <button onClick={() => setShowNav(true)}>
-          <AiOutlineMenu size={20} color="#000" />
+          <AiOutlineMenu size={30} color="#000" />
         </button>
         <div className="flex grow justify-center mr-6">
           <Logo />
@@ -30,7 +30,7 @@ export default function Layout({ children }) {
       </div>
       <div className="flex">
         <Nav show={showNav} />
-        <div className="flex-grow px-5 py-5">
+        <div className="flex-grow px-5 py-5 mt-10">
           {children}
         </div>
       </div>

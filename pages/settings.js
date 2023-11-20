@@ -1,7 +1,7 @@
-import Layout from "@/components/Layout";
+import Layout from "@/components/Layout/Layout";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Spinner from "@/components/Spinner";
+import Spinner from "@/components/Basics/Spinner";
 
 function SettingsPage() {
   const [products, setProducts] = useState([]);
@@ -49,12 +49,12 @@ function SettingsPage() {
 
   return (
     <Layout>
-      <h3 className="uppercase grey_text">Settings</h3>
+      <h3 className="uppercase grey_text">Setări</h3>
       {isLoading && <Spinner />}
       {!isLoading && (
         <div className="flex flex-col gap-5">
           <div className="flex flex-row gap-10">
-            <label>Featured product</label>
+            <label>Produs principal</label>
             <select value={featuredProductId} onChange={ev => setFeaturedProductId(ev.target.value)}>
               {products.length > 0 && products.map(product => (
                 <option key={product._id} value={product._id}>{product.title}</option>
@@ -62,7 +62,7 @@ function SettingsPage() {
             </select>
           </div>
           <div className="flex flex-row gap-10">
-            <label>Shipping price (in USD)</label>
+            <label>Transport (in RON)</label>
             <input
               type="number"
               value={shippingFee}
@@ -71,7 +71,7 @@ function SettingsPage() {
           </div>
           <div>
             <button onClick={saveSettings} className="btn-primary rounded-lg">
-              Save settings
+              Salvează
             </button>
           </div>
         </div>

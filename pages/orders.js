@@ -1,7 +1,7 @@
-import Layout from "@/components/Layout";
+import Layout from "@/components/Layout/Layout";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Spinner from "@/components/Spinner";
+import Spinner from "@/components/Basics/Spinner";
 import Link from "next/link";
 
 export default function OrdersPage() {

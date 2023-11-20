@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSession } from "next-auth/react";
-import StatsBox from "./StatsBox";
-import Grid from "./Grid";
+import StatsBox from "../Boxes/StatsBox";
+import Grid from "../Layout/Grid";
 import { subHours } from "date-fns";
-import CategoryStats from "./CategoryStats";
-import TopSalesStats from "./TopSalesStats";
-import CityStats from "./CityStats";
+import CategoryStats from "../Stats/CategoryStats";
+import TopSalesStats from "../Stats/TopSalesStats";
+import CityStats from "../Stats/CityStats";
 
 
 function HomeStatsNew() {
@@ -89,16 +89,16 @@ function HomeStatsNew() {
         <div className="flex flex-col gap-5 mt-10">
             <Grid>
                 <StatsBox
-                    background='medium_blue_background'
-                    text="white_text"
-                    title="Total sales"
+                    background='#252525'
+                    text="black_text"
+                    title="Vânzări totale"
                     value={totalOrdersRevenue()}
                     percent_value={percentageIncreaseThisMonth()}
                     value_week={percentageIncreaseThisWeek()} />
                 <StatsBox
                     background='#fff'
                     text="black_text"
-                    title="Total orders"
+                    title="Comenzi totale"
                     value={totalOrder()}
                     percent_value={ordersThisMonth().length}
                     value_week={ordersThisWeek().length}

@@ -12,10 +12,10 @@ h3{
     @apply text-[46px]
 }
 h4{
-    @apply text-[30px]
+    @apply text-[20px] lg:text-[30px]
 }
 h5{
-    @apply text-[18px]
+    @apply text-[14px] lg:text-[18px]
 }
 h6{
     @apply text-[16px]
@@ -23,6 +23,7 @@ h6{
 p{
     @apply text-[14px]
 }
+
 .dark_blue_text{
     color: rgb(31, 59, 138),
 }
@@ -63,7 +64,7 @@ p{
     display: flex;
      align-items: center; 
      justify-content: center;
-    width: 15rem;
+    width: 17rem;
     height: 3rem;
    background: rgb(31, 59, 138);
    color:#fff;

@@ -1,9 +1,9 @@
-import Layout from "@/components/Layout";
+import Layout from "@/components/Layout/Layout";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import ProductForm from "@/components/ProductForm";
-import Spinner from "@/components/Spinner";
+import ProductForm from "@/components/Layout/ProductForm";
+import Spinner from "@/components/Basics/Spinner";
 
 export default function EditProductPage() {
   const [productInfo, setProductInfo] = useState(null);

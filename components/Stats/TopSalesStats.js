@@ -52,15 +52,15 @@ export default function TopSalesStats() {
     }, [orders, products,]);
 
     return (
-        <div>
-            <h4 className=" dark_blue_text bold">Top 3 Selling Products</h4>
+        <div className="h-[30vh] w-[20rem] flex flex-col items-center justify-start text-center">
+            <h4 className=" black_text  font-medium uppercase">Top 3 cele mai vândute produse</h4>
             <div>
                 {topProducts.map(({ productId, count }) => {
                     const product = products.find(product => product._id === productId);
                     return (
                         <div key={productId}>
-                            <h5 className="grey_text">Name: {product ? product.title : 'Unknown'}</h5>
-                            <h5 className="grey_text">Count: {count}</h5>
+                            <h5 className="grey_text">Nume: {product ? product.title : 'Unknown'}</h5>
+                            <h5 className="grey_text">Cantitate: {count}</h5>
                             {/* <h5 className="grey_text">Selected Scent: {product ? product.selectedScent : 'Unknown'}</h5>
                             <h5 className="grey_text">Selected Decoration: {product ? product.selectedDecoration : 'Unknown'}</h5> */}
                         </div>

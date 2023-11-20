@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 import Link from "next/link";
 
-import Button from "./Button";
+import Button from "../Buttons/Button";
 import Image from "next/image";
 import { AiOutlineMenu } from "react-icons/ai"
 import LogoNav from "@/public/logoBig.png"
@@ -14,7 +14,7 @@ export default function Header() {
     <div className="navigation_bar">
       <div className="w-full flex items-center justify-center h-[8vh] gap-[60px] absolute top-0">
         <div className="w-1/2 lg:w-auto flex items-center justify-start absolute left-[30px] lg:relative">
-          <h2 >
+          <h2>
             <Image alt="logo" width={150} src={LogoNav}></Image>
           </h2>
         </div>

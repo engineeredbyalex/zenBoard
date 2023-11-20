@@ -21,20 +21,20 @@ export default function HomeHeader() {
   return (
     <div className=" h-[10vh] flex items-center justify-between">
       <h2>
-        <div className="flex gap-2 items-center">
+        <div className=" hidden lg:flex gap-2 items-center">
           <Image width={50} height={50} src={session?.user?.image} alt="" className="w-6 h-6 rounded-md sm:hidden" />
           <div>
-            <h4 className="dark_blue_text">
-              Hello, <b>{session?.user?.name}</b>
+            <h4 className="black_text  leading-5 lg:leading-10">
+              Salut, <b>{session?.user?.name}</b>
             </h4>
-            <h5 className="grey_text">Here s what s happening with your store today.</h5>
+            <h5 className="grey_text leading-3">Starea actuală a magazinului tău.</h5>
           </div>
         </div>
       </h2>
       <div className="px-3 py-1 relative">
 
         <div className="flex gap-1 text-black items-center">
-          <div className="px-3 py-1 relative bottom-2 right-[5rem]">
+          {/* <div className="px-3 py-1 relative bottom-2 lg:right-[5rem]">
             <div>
               <div className="red_background w-[1.2rem] h-[1.2rem] rounded-full relative top-4 left-4 flex items-center justify-center">
                 <p className="white_text">{notifications.length}</p>
@@ -43,14 +43,14 @@ export default function HomeHeader() {
                 <AiOutlineBell size={30} />
               </button>
             </div>
-            <div className={`grey_text absolute left-30 top-full   ${notificationToggle ? "block" : "hidden"}`}>
+            <div className={`grey_text absolute left-0 lg:left-30 top-full   ${notificationToggle ? "block" : "hidden"}`}>
               <ul>
                 {notifications.map((notification, index) => (
                   <li key={index}>{notification}</li>
                 ))}
               </ul>
             </div>
-          </div>
+          </div> */}
           <Image width={50} height={50} src={session?.user?.image} alt="" className="w-[40px] h-[40px] rounded-xl" />
           <span className="px-2">
             <p className="grey_text">{session?.user?.name}</p>
@@ -61,13 +61,13 @@ export default function HomeHeader() {
         </div>
         <div className={`grey_text absolute right-[0rem] top-full p-2 ${userMenuToggle ? "block" : "hidden"}`}>
           <Link href={'/account'}>
-            <p>Account</p>
+            <p>Cont</p>
           </Link>
           <Link href={'/support'}>
-            <p>Support</p>
+            <p>Suport</p>
           </Link>
           <Link onClick={() => signOut('google')} href={'/'}>
-            <p>Log out</p>
+            <p>Deconectare</p>
           </Link>
         </div>
       </div>

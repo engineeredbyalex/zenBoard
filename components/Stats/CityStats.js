@@ -45,13 +45,13 @@ export default function CityStats() {
     }, [orders,]);
 
     return (
-        <div>
-            <h4 className="dark_blue_text bold">Top 3 Cities with Most Orders</h4>
+        <div className="h-[30vh] w-[20rem] flex flex-col items-center justify-start text-center">
+            <h4 className=" black_text font-medium uppercase">Top 3 orașe după numărul de comenzi</h4>
             <div>
                 {topCities.map(({ city, count }) => (
                     <div key={city}>
-                        <h5 className="grey_text">City: {city}</h5>
-                        <h5 className="grey_text">Order Count: {count}</h5>
+                        <h5 className="grey_text">Oraș: {city}</h5>
+                        <h5 className="grey_text">Număr comenzi: {count}</h5>
                     </div>
                 ))}
             </div>
