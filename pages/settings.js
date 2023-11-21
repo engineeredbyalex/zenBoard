@@ -1,9 +1,8 @@
 import Layout from "@/components/Layout/Layout";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Spinner from "@/components/Basics/Spinner";
 
-function SettingsPage() {
+export default function SettingsPage() {
   const [products, setProducts] = useState([]);
   const [featuredProductId, setFeaturedProductId] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -50,7 +49,7 @@ function SettingsPage() {
   return (
     <Layout>
       <h3 className="uppercase grey_text">Setări</h3>
-      {isLoading && <Spinner />}
+      {isLoading && <div />}
       {!isLoading && (
         <div className="flex flex-col gap-5">
           <div className="flex flex-row gap-10">
@@ -80,4 +79,4 @@ function SettingsPage() {
   );
 }
 
-export default SettingsPage;
+
