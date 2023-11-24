@@ -15,7 +15,7 @@ function productSettings() {
     return (
         <Layout>
             <div>
-                Add disscount ?
+                Adaugă disscount
             </div>
             <div className='grid grid-cols-3 gap-10'>
                 {products.map(product => (
