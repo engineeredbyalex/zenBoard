@@ -10,50 +10,58 @@ export default function ProductForm({
   price: existingPrice,
   images: existingImages,
   category: assignedCategory,
-  properties: assignedProperties,
+  properties: existingProperties,
 }) {
   const [title, setTitle] = useState(existingTitle || "");
   const [description, setDescription] = useState(existingDescription || "");
   const [category, setCategory] = useState(assignedCategory || "");
-  const [productProperties, setProductProperties] = useState(assignedProperties || {});
   const [price, setPrice] = useState(existingPrice || "");
   const [images, setImages] = useState(existingImages || []);
   const [goToProducts, setGoToProducts] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
   const [categories, setCategories] = useState([]);
-  const [categoriesLoading, setCategoriesLoading] = useState(false);
-  const [propertyKey, setPropertyKey] = useState("");
-  const [propertyValue, setPropertyValue] = useState("");
+  const [properties, setProperties] = useState(existingProperties || []);
+
   const router = useRouter();
 
   useEffect(() => {
-    setCategoriesLoading(true);
     axios.get("/api/categories").then((result) => {
       setCategories(result.data);
-      setCategoriesLoading(false);
     });
   }, []);
 
-  async function saveProduct(ev) {
-    ev.preventDefault();
-    const data = {
-      title,
-      description,
-      price,
-      images,
-      category,
-      properties: productProperties,
-    };
-    if (_id) {
-      await axios.put("/api/products", { ...data, _id });
-    } else {
-      await axios.post("/api/products", data);
-    }
-    setGoToProducts(true);
+  function addProperty() {
+    setProperties([...properties, { name: "", values: [""] }]);
   }
 
-  if (goToProducts) {
-    router.push("/products");
+  function removeProperty(index) {
+    const newProperties = [...properties];
+    newProperties.splice(index, 1);
+    setProperties(newProperties);
+  }
+
+  function addPropertyValue(propertyIndex) {
+    const newProperties = [...properties];
+    newProperties[propertyIndex].values.push("");
+    setProperties(newProperties);
+  }
+
+  function removePropertyValue(propertyIndex, valueIndex) {
+    const newProperties = [...properties];
+    newProperties[propertyIndex].values.splice(valueIndex, 1);
+    setProperties(newProperties);
+  }
+
+  function handlePropertyNameChange(ev, index) {
+    const newProperties = [...properties];
+    newProperties[index].name = ev.target.value;
+    setProperties(newProperties);
+  }
+
+  function handlePropertyValueChange(ev, propertyIndex, valueIndex) {
+    const newProperties = [...properties];
+    newProperties[propertyIndex].values[valueIndex] = ev.target.value;
+    setProperties(newProperties);
   }
 
   async function uploadImages(ev) {
@@ -64,31 +72,42 @@ export default function ProductForm({
       for (const file of files) {
         data.append("file", file);
       }
-      const res = await axios.post("/api/upload", data);
-      setImages((oldImages) => {
-        return [...oldImages, ...res.data.links];
-      });
-      setIsUploading(false);
+      try {
+        const res = await axios.post("/api/upload", data);
+        setImages((oldImages) => {
+          return [...oldImages, ...res.data.links];
+        });
+        setIsUploading(false);
+      } catch (error) {
+        console.error('Error uploading images:', error);
+        setIsUploading(false);
+      }
     }
   }
 
-  function deleteImage(index) {
-    const newImages = [...images];
-    newImages.splice(index, 1);
-    setImages(newImages);
-  }
+  async function saveProduct(ev) {
+    ev.preventDefault();
 
-  function updateImagesOrder(images) {
-    setImages(images);
-  }
+    const data = {
+      title,
+      description,
+      price,
+      images,
+      category,
+      properties: properties.map(property => ({ name: property.name, values: property.values })),
+    };
 
-  function addProperty() {
-    setProductProperties((prev) => ({
-      ...prev,
-      [propertyKey]: propertyValue,
-    }));
-    setPropertyKey("");
-    setPropertyValue("");
+    try {
+      if (_id) {
+        await axios.put("/api/products", { ...data, _id });
+      } else {
+        await axios.post("/api/products", data);
+      }
+
+      setGoToProducts(true);
+    } catch (error) {
+      console.error('Error saving product:', error);
+    }
   }
 
   return (
@@ -101,7 +120,6 @@ export default function ProductForm({
         onChange={(ev) => setTitle(ev.target.value)}
         className="border p-2 my-2 w-full"
       />
-      <label className="block">Categorie</label>
       <select
         value={category}
         onChange={(ev) => setCategory(ev.target.value)}
@@ -115,13 +133,56 @@ export default function ProductForm({
             </option>
           ))}
       </select>
-      {categoriesLoading && <div />}
+
+      <div className="w-full mb-10">
+        <label className="block">Proprietăți</label>
+        <div className="flex flex-wrap gap-[2rem]">
+          {properties.map((property, index) => (
+            <div key={index} className="flex flex-wrap gap-[2rem]">
+              <input
+                className="border p-2 w-[15rem]"
+                type="text"
+                placeholder="Nume proprietate"
+                value={property.name}
+                onChange={(ev) => handlePropertyNameChange(ev, index)}
+              />
+              {property.values.map((value, valueIndex) => (
+                <input
+                  key={valueIndex}
+                  type="text"
+                  placeholder="Proprietate produs"
+                  value={value}
+                  onChange={(ev) => handlePropertyValueChange(ev, index, valueIndex)}
+                  className="border px-5"
+                />
+              ))}
+              <div className="flex items-center  gap-5">
+                <button className="bg-[#000] text-white font-bold  w-[7rem] rounded  h-[3rem]" type="button" onClick={() => addPropertyValue(index)}>
+                  <p>
+                    Adauga valoare
+                  </p>
+                </button>
+                <button className="bg-[#000] text-white font-bold  w-[7rem] rounded  h-[3rem]" type="button" onClick={() => removeProperty(index)}>
+                  <p> Șterge</p>
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+        <button
+          type="button"
+          onClick={addProperty}
+          className="bg-[#000] text-white font-bold  w-[15rem] rounded mt-10 h-[3rem]"
+        >
+          Adauga proprietate
+        </button>
+      </div>
 
       <div className="mb-2 flex flex-wrap gap-1">
         <ReactSortable
           list={images}
           className="flex flex-wrap gap-1"
-          setList={updateImagesOrder}
+          setList={(images) => setImages(images)}
         >
           {images?.length > 0 &&
             images.map((link, index) => (
@@ -163,39 +224,13 @@ export default function ProductForm({
           <input type="file" onChange={uploadImages} className="hidden" />
         </label>
       </div>
+
       <textarea
         className="min-h-[30vh] border p-2 my-2 w-full"
         placeholder="description"
         value={description}
         onChange={(ev) => setDescription(ev.target.value)}
       />
-      <div className="my-4">
-        <label className="block">Proprietăți adiționale</label>
-        <div className="flex gap-2">
-          <input
-            type="text"
-            placeholder="Nume proprietate"
-            value={propertyKey}
-            onChange={(e) => setPropertyKey(e.target.value)}
-            className="border p-2 w-1/2"
-          />
-          <input
-            type="text"
-            placeholder="Valoare proprietate"
-            value={propertyValue}
-            onChange={(e) => setPropertyValue(e.target.value)}
-            className="border p-2 w-1/2"
-          />
-          <button
-            type="button"
-            onClick={addProperty}
-            className="bg-[#000] text-white font-bold py-2 px-4 rounded"
-          >
-            Adaugă
-          </button>
-        </div>
-      </div>
-      {/* ... existing form fields ... */}
       <input
         type="number"
         placeholder="price"

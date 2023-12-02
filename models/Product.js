@@ -1,13 +1,8 @@
 import mongoose, { model, Schema, models } from "mongoose";
 
-const VariationSchema = new Schema({
-  name: { type: String, required: true },
-  values: [{ type: String, required: true }],
-});
-
 const PropertySchema = new Schema({
   name: { type: String, required: true },
-  value: { type: String, required: true },
+  values: [{ type: String, required: true }], // Update here to directly store an array of strings
 });
 
 const ProductSchema = new Schema(
@@ -17,8 +12,7 @@ const ProductSchema = new Schema(
     price: { type: Number, required: true },
     images: [{ type: String }],
     category: { type: mongoose.Types.ObjectId, ref: "Category" },
-    variations: [VariationSchema],
-    properties: [PropertySchema], // Add this line for properties
+    properties: [PropertySchema],
   },
   {
     timestamps: true,

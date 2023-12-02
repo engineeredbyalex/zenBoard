@@ -26,7 +26,6 @@ export default function CityStats() {
             }
         });
 
-        console.log('City Counts:', cityCounts);
 
         // Convert cityCounts object to array of { city, count } objects
         const countsArray = Object.entries(cityCounts).map(([city, count]) => ({ city, count }));
@@ -45,13 +44,13 @@ export default function CityStats() {
     }, [orders,]);
 
     return (
-        <div className="h-[30vh] w-[20rem] flex flex-col items-center justify-start text-center">
-            <h4 className=" black_text font-medium uppercase">Top 3 orașe după numărul de comenzi</h4>
-            <div>
+        <div className="h-[30vh] w-[25rem] flex flex-col items-center justify-start text-center">
+            <h4 className=" black_text font-medium uppercase text-left">Top 3 orașe după numărul de comenzi</h4>
+            <div className="text-left flex items-start justify-center gap-5">
                 {topCities.map(({ city, count }) => (
                     <div key={city}>
                         <h5 className="grey_text">Oraș: {city}</h5>
-                        <h5 className="grey_text">Număr comenzi: {count}</h5>
+                        <h5 className="grey_text ">Număr comenzi: {count}</h5>
                     </div>
                 ))}
             </div>

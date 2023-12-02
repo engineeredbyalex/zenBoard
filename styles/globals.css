@@ -51,6 +51,9 @@ p{
 .light_blue_background{
     background-color: rgba(174, 194, 250, 0.151);
 }
+.light_grey_background{
+    background-color: rgba(216, 216, 216, 0.151);
+}
 .green_text {
     color: #61ef44;
 }
@@ -66,7 +69,8 @@ p{
      justify-content: center;
     width: 17rem;
     height: 3rem;
-   background: rgb(31, 59, 138);
+   /* background: rgb(31, 59, 138); */
+   background: rgb(0, 0, 0);
    color:#fff;
    padding: 1rem 2rem;
    border-radius: 10px;
@@ -89,18 +93,14 @@ p{
 
 .btn-default,
 .btn-red {
-  display: flex;
-  gap: 5px;
-  justify-content: center;
-  align-items: center;
-  padding: 8px;
-  margin-right: 8px;
-  text-decoration: none;
-  color: #fff;
-  border-radius: 4px;
-  cursor: pointer;
-      width: 15rem;
+    display: flex;
+     align-items: center; 
+     justify-content: center;
+    width: 17rem;
     height: 3rem;
+   color:#fff;
+   padding: 1rem 2rem;
+   border-radius: 10px;
 
 }
 

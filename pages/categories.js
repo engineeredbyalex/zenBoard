@@ -116,17 +116,18 @@ function Categories() {
       <form onSubmit={saveCategory}>
         <div className="flex gap-1 mt-10 mb-10">
           <input
-            className="w-[20rem] light_blue_background py-3 px-3"
+            className="w-[20rem] light_grey_background py-3 px-3"
             type="text"
             placeholder={'Nume categorie'}
             onChange={ev => setName(ev.target.value)}
             value={name} />
           <select
+            className="w-[20rem] light_grey_background py-3 px-3"
             onChange={ev => setParentCategory(ev.target.value)}
             value={parentCategory}>
-            <option className="w-[20rem]" value="">Fară categorie părinte</option>
+            <option className="w-[20rem] light_grey_background py-3 px-3" value="">Categorie principală</option>
             {categories.length > 0 && categories.map(category => (
-              <option key={category._id} value={category._id}>{category.name}</option>
+              <option className="w-[20rem] light_grey_background py-3 px-3" key={category._id} value={category._id}>{category.name}</option>
             ))}
           </select>
         </div>
@@ -186,7 +187,7 @@ function Categories() {
           <thead>
             <tr>
               <td>Nume categorie</td>
-              <td>Categorie părinte</td>
+              <td>Categorie principală</td>
               <td></td>
             </tr>
           </thead>
@@ -204,10 +205,10 @@ function Categories() {
               <tr key={category._id}>
                 <td>{category.name}</td>
                 <td>{category?.parent?.name}</td>
-                <td>
+                <td className="flex flex-col gap-5">
                   <button
                     onClick={() => editCategory(category)}
-                    className="btn-default mr-1"
+                    className="btn-primary mr-1"
                   >
                     Editează
                   </button>

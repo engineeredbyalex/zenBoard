@@ -16,9 +16,9 @@ import { AiFillSetting } from "react-icons/ai";
 
 export default function Nav({ show }) {
   const inactiveLink = 'flex gap-1 p-1 items-center justify-center h-[3rem]';
-  const activeLink = inactiveLink + ' bg-highlight text-gray rounded-sm ';
-  const inactiveIcon = 'w-6 h-6 ';
-  const activeIcon = inactiveIcon + ' text-primary';
+  const activeLink = inactiveLink + ' bg-[#000] text-white rounded-sm ';
+  const inactiveIcon = 'w-6 h-6  ';
+  const activeIcon = inactiveIcon + ' text-grey';
   const router = useRouter();
   const { pathname } = router;
   async function logout() {
@@ -54,6 +54,12 @@ export default function Nav({ show }) {
             <AiOutlineShoppingCart size={20} />
           </div>
           Comenzi
+        </Link>
+        <Link href={'/blog'} className={pathname.includes('/blog') ? activeLink : inactiveLink}>
+          <div className={pathname.includes('/blog') ? activeIcon : inactiveIcon}>
+            <AiOutlineUsergroupAdd size={20} />
+          </div>
+          Blog
         </Link>
         <Link href={'/admins'} className={pathname.includes('/admins') ? activeLink : inactiveLink}>
           <div className={pathname.includes('/admins') ? activeIcon : inactiveIcon}>

@@ -33,7 +33,7 @@ export default function TopSalesStats() {
             });
         });
 
-        console.log('Product Counts:', productCounts);
+
 
         // Convert productCounts object to array of { productId, count } objects
         const countsArray = Object.entries(productCounts).map(([productId, count]) => ({ productId, count }));
@@ -52,9 +52,9 @@ export default function TopSalesStats() {
     }, [orders, products,]);
 
     return (
-        <div className="h-[30vh] w-[20rem] flex flex-col items-center justify-start text-center">
+        <div className="h-[30vh] w-[25rem] flex flex-col items-center justify-start text-left ">
             <h4 className=" black_text  font-medium uppercase">Top 3 cele mai vândute produse</h4>
-            <div>
+            <div className="text-left flex items-start justify-center gap-5">
                 {topProducts.map(({ productId, count }) => {
                     const product = products.find(product => product._id === productId);
                     return (

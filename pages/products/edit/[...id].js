@@ -22,7 +22,7 @@ export default function EditProductPage() {
   }, [id]);
   return (
     <Layout>
-      <h3 className="font-light uppercase grey_text">Edit product</h3>
+      <h3 className="font-light uppercase grey_text">Editează produsul</h3>
       {isLoading && (
         <Spinner />
       )}

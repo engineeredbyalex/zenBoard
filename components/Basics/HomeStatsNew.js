@@ -86,7 +86,7 @@ function HomeStatsNew() {
         );
     }
     return (
-        <div className="flex flex-col gap-5 mt-10">
+        <div className="flex flex-col gap-5 mt-10 ">
             <Grid>
                 <StatsBox
                     background='#252525'
