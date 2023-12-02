@@ -2,7 +2,7 @@ import Layout from '@/components/Layout/Layout'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-function productSettings() {
+function ProductSettings() {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -28,4 +28,4 @@ function productSettings() {
     )
 }
 
-export default productSettings 
+export default ProductSettings 
