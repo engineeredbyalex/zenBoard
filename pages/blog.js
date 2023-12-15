@@ -13,10 +13,10 @@ function Blog() {
     }, []);
     return (
         <Layout>
-            <h3 className="uppercase grey_text">Articles</h3>
+            <h3 className="uppercase grey_text">Articole</h3>
             <div className="flex gap-10">
                 <Link className="btn-primary uppercase font-bold" href={'/blog/new'}>Adaugă un nou articol</Link>
-                <Link className="btn-primary uppercase font-bold" href={'/blog/view'}>Vezi toate produsele</Link>
+
             </div>
             <table className="basic mt-2">
                 <thead>

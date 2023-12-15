@@ -28,19 +28,19 @@ export default async function handle(req, res) {
         }
 
         if (method === "POST") {
-            const { title, headingOne, contentOne, headingTwo, contentTwo, contentThree } = req.body;
+            const { title, } = req.body;
             const blogDoc = await Product.create({
-                title, headingOne, contentOne, headingTwo, contentTwo, contentThree
+                title, 
             });
             res.json(blogDoc);
         }
 
         if (method === "PUT") {
-            const { title, headingOne, contentOne, headingTwo, contentTwo, contentThree } = req.body;
+            const { title, } = req.body;
             await Blog.updateOne(
                 { _id },
                 {
-                    title, headingOne, contentOne, headingTwo, contentTwo, contentThree
+                    title,
                 }
             );
             res.json(true);

@@ -66,16 +66,7 @@ export default function ProductPage({ product }) {
                                 <div className="mb-4 text-center">
                                     <label className="block mb-2 mt-5"><p className="text-2xl">Selectați parfumul :</p></label>
                                     <div className="flex flex-wrap gap-2 items-center justify-center">
-                                        {product.properties[0].map((parfum, index) => (
-                                            <button
-                                                key={index}
-                                                onClick={() => setSelectedScent(parfum)}
-                                                className={`px-4 py-2 border border-gray-300 rounded-full transition-all ease-in-out duration-200 hover:scale-102 ${selectedScent === parfum ? 'bg-blue-500 text-white' : 'bg-white'
-                                                    }`}
-                                            >
-                                                {parfum}
-                                            </button>
-                                        ))}
+
                                     </div>
                                 </div>
                             )}
