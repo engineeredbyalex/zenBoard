@@ -61,6 +61,12 @@ export default function Nav({ show }) {
           </div>
           Blog
         </Link>
+        <Link href={'/customization'} className={pathname.includes('/customization') ? activeLink : inactiveLink}>
+          <div className={pathname.includes('/customization') ? activeIcon : inactiveIcon}>
+            <AiOutlineUsergroupAdd size={20} />
+          </div>
+          Customization
+        </Link>
         <Link href={'/admins'} className={pathname.includes('/admins') ? activeLink : inactiveLink}>
           <div className={pathname.includes('/admins') ? activeIcon : inactiveIcon}>
             <AiOutlineUsergroupAdd size={20} />
