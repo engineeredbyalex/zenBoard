@@ -87,7 +87,7 @@ function HomeStatsNew() {
     }
     return (
         <div className="flex flex-col gap-5 mt-10 ">
-            <Grid>
+            <div className="flex gap-10">
                 <StatsBox
                     background='#252525'
                     text="black_text"
@@ -103,7 +103,7 @@ function HomeStatsNew() {
                     percent_value={ordersThisMonth().length}
                     value_week={ordersThisWeek().length}
                 />
-            </Grid>
+            </div>
             <Grid className="mt-10">
                 <CategoryStats />
                 <TopSalesStats />

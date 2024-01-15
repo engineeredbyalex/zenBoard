@@ -35,25 +35,25 @@ export default function Nav({ show }) {
           <div className={pathname === '/' ? activeIcon : inactiveIcon}>
             <AiOutlineAppstore size={20} />
           </div>
-          Acasă
+          Home
         </Link>
         <Link href={'/products'} className={pathname.includes('/products') ? activeLink : inactiveLink}>
           <div className={pathname.includes('/products') ? activeIcon : inactiveIcon}>
             <AiOutlineShop size={20} />
           </div>
-          Produse
+          Products
         </Link>
         <Link href={'/categories'} className={pathname.includes('/categories') ? activeLink : inactiveLink}>
           <div className={pathname.includes('/categories') ? activeIcon : inactiveIcon}>
             <AiOutlineFolderOpen size={20} />
           </div>
-          Categorii
+          Categories
         </Link>
         <Link href={'/orders'} className={pathname.includes('/orders') ? activeLink : inactiveLink}>
           <div className={pathname.includes('/orders') ? activeIcon : inactiveIcon}>
             <AiOutlineShoppingCart size={20} />
           </div>
-          Comenzi
+          Orders
         </Link>
         <Link href={'/blog'} className={pathname.includes('/blog') ? activeLink : inactiveLink}>
           <div className={pathname.includes('/blog') ? activeIcon : inactiveIcon}>
@@ -71,13 +71,13 @@ export default function Nav({ show }) {
           <div className={pathname.includes('/admins') ? activeIcon : inactiveIcon}>
             <AiOutlineUsergroupAdd size={20} />
           </div>
-          Administratori
+          Admins
         </Link>
         <Link href={'/settings'} className={pathname.includes('/settings') ? activeLink : inactiveLink}>
           <div className={pathname.includes('/settings') ? activeIcon : inactiveIcon}>
             <AiFillSetting size={20} />
           </div>
-          Setări
+          Settings
         </Link>
       </nav>
     </aside>

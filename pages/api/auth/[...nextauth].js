@@ -17,8 +17,5 @@ export const authOptions = {
 
 export default NextAuth(authOptions);
 
-// No need for isAdminEmail function and session callback logic
-
 export async function isAdminRequest(req, res) {
-  // No need to check isAdminEmail in this function as well
 }

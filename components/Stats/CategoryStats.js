@@ -52,8 +52,8 @@ export default function Stats() {
     }, [orders, categories,]);
 
     return (
-        <div className="h-[30vh] w-[25rem] flex flex-col items-center justify-start text-left ">
-            <h4 className="black_text  font-medium uppercase">Categorii</h4>
+        <div className="h-auto auto flex flex-col items-center justify-start text-left ">
+            <h4 className="black_text font-medium uppercase">Categorii</h4>
             <div className="text-left flex items-start justify-center gap-5">
                 {categoryCounts.map(({ categoryId, count }) => {
                     const category = categories.find(category => category._id === categoryId);

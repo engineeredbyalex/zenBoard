@@ -6,6 +6,7 @@ import Link from "next/link";
 
 export default function OrdersPage() {
   const [orders, setOrders] = useState([]);
+  const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -16,6 +17,17 @@ export default function OrdersPage() {
     });
   }, []);
 
+  useEffect(() => {
+    axios.get('/api/products').then(response => {
+      setProducts(response.data);
+    });
+  }, []);
+
+  const getProductDetails = (productId) => {
+    const product = products.find(product => product._id === productId);
+    return product || {};
+  };
+
   return (
     <Layout>
       <h3 className="uppercase grey_text">Orders</h3>
@@ -23,18 +35,24 @@ export default function OrdersPage() {
       <div className="mb-10">
         <h4 className="uppercase grey_text font-light">Stripe</h4>
         <div className="flex flex-row items-start gap-[15px]">
-          <button className="bg-black p-2 rounded-lg text-white w-[15rem]"><Link target="_blank" href={'https://dashboard.stripe.com/payments'}>Vezi comenzi pe Stripe</Link></button>
-          <button className="bg-black p-2 rounded-lg text-white w-[15rem]"><Link href={'https://dashboard.stripe.com/balance/overview'}>Vezi blanță pe Stripe</Link></button>
-          <button className="bg-black p-2 rounded-lg text-white w-[15rem]"><Link href={'https://dashboard.stripe.com/customers'}>Vezi clienți pe Stripe</Link></button>
+          <button className="bg-black p-2 rounded-lg text-white w-[15rem]">
+            <Link target="_blank" href={'https://dashboard.stripe.com/payments'}>See Stripe Orders</Link>
+          </button>
+          <button className="bg-black p-2 rounded-lg text-white w-[15rem]">
+            <Link href={'https://dashboard.stripe.com/balance/overview'}>See Stripe Balance</Link>
+          </button>
+          <button className="bg-black p-2 rounded-lg text-white w-[15rem]">
+            <Link href={'https://dashboard.stripe.com/customers'}>See Stripe Clients</Link>
+          </button>
         </div>
       </div>
       <table className="basic">
         <thead>
           <tr>
-            <th>Dată</th>
-            <th>Status plată</th>
+            <th>Date</th>
+            <th>Payment Status</th>
             <th>Client</th>
-            <th>Produse</th>
+            <th>Products</th>
           </tr>
         </thead>
         <tbody>
@@ -51,26 +69,36 @@ export default function OrdersPage() {
               <tr key={order._id} className={index % 2 === 0 ? 'bg-gray-100' : 'bg-gray-200'}>
                 <td>{(new Date(order.createdAt)).toLocaleString()}</td>
                 <td className={order.paid ? 'text-green-600' : 'text-red-600'}>
-                  {order.paid ? 'Da' : 'Nu'}
+                  {order.paid ? 'Yes' : 'No'}
                 </td>
                 <td>
-                  <p>Nume : {order.name} </p>
-                  <p>Adresă de email : {order.email} </p>
-                  <p>Număr de telefon : {order.phone}</p>
-                  <p>Oraș : {order.city}</p>
-                  <p>Cod poștal : {order.postalCode}</p>
-                  <p>Județ : {order.country} </p>
-                  <p>Adresă : {order.streetAddress} </p>
+                  <p>Name : {order.name} </p>
+                  <p>Email Adress: {order.email} </p>
+                  <p>Phone Number : {order.phone}</p>
+                  <p>City : {order.city}</p>
+                  <p>Postal Code : {order.postalCode}</p>
+                  <p>County : {order.country} </p>
+                  <p>Adress : {order.streetAddress} </p>
                 </td>
                 <td>
-                  {order.line_items.map((l, index) => (
-                    <div key={index} className="border border-black p-2 mb-2">
-                      <p>Nume : {l.title}</p>
-                      {l.selectedScente ? (<p>Parfum : {l.selectedScent}</p>) : (null)}
-                      {l.selectedDecoration ? (<p>Decorațiune : {l.selectedDecoration}</p>) : (null)}
-                      <p>Cantitate : {l.quantity}</p>
-                    </div>
-                  ))}
+                  {order.line_items.map((lineItem, index) => {
+                    const productDetails = getProductDetails(lineItem.productId);
+                    return (
+                      <div key={index} className="border border-black p-2 mb-2">
+                        <p>Product Name: {productDetails.title}</p>
+                        <p>Quantity : {lineItem.quantity}</p>
+                        {lineItem.selectedValues && lineItem.selectedValues.length > 0 ? (
+                          lineItem.selectedValues.map((selectedValue, index) => (
+                            <p key={index}>
+                              Option {index + 1}: {selectedValue.value}
+                            </p>
+                          ))
+                        ) : (
+                          <p>No selected values</p>
+                        )}
+                      </div>
+                    );
+                  })}
                 </td>
               </tr>
             ))

@@ -25,9 +25,9 @@ export default function HomeHeader() {
           <Image width={50} height={50} src={session?.user?.image} alt="" className="w-6 h-6 rounded-md sm:hidden" />
           <div>
             <h4 className="black_text  leading-5 lg:leading-10">
-              Salut, <b>{session?.user?.name}</b>
+              Hello, <b>{session?.user?.name}</b>
             </h4>
-            <h5 className="grey_text leading-3">Starea actuală a magazinului tău.</h5>
+            <h5 className="grey_text leading-3">Current state of your shop</h5>
           </div>
         </div>
       </h2>
@@ -61,13 +61,13 @@ export default function HomeHeader() {
         </div>
         <div className={`grey_text absolute right-[0rem] top-full p-2 ${userMenuToggle ? "block" : "hidden"}`}>
           <Link href={'/account'}>
-            <p>Cont</p>
+            <p>Account</p>
           </Link>
           <Link href={'/support'}>
-            <p>Suport</p>
+            <p>Support</p>
           </Link>
           <Link onClick={() => signOut('google')} href={'/'}>
-            <p>Deconectare</p>
+            <p>Logout</p>
           </Link>
         </div>
       </div>
