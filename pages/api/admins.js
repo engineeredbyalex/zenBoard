@@ -24,4 +24,4 @@ export default async function handle(req, res) {
   if (req.method === 'GET') {
     res.json(await Admin.find());
   }
-}
+}s
