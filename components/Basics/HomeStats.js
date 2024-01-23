@@ -104,11 +104,11 @@ function HomeStatsNew() {
                     value_week={ordersThisWeek().length}
                 />
             </div>
-            <Grid className="mt-10">
+            <div className="mt-10 lg:flex flex-row gap-10 w-full items-center justify-center">
                 <CategoryStats />
                 <TopSalesStats />
                 <CityStats />
-            </Grid>
+            </div>
         </div>
     );
 }

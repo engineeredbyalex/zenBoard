@@ -146,7 +146,7 @@ export default function ProductForm({
                 value={property.name}
                 onChange={(ev) => handlePropertyNameChange(ev, index)}
               />
-              {property.values.map((value, valueIndex) => (
+              {property.values?.map((value, valueIndex) => (
                 <input
                   key={valueIndex}
                   type="text"
