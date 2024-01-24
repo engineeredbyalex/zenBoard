@@ -1,6 +1,6 @@
 
-import Layout from "@/components/Layout/Layout";
-import BlogForm from "@/components/Layout/BlogForm";
+import Layout from "@/components/layout/Layout";
+import BlogForm from "@/components/forms/BlogForm";
 
 export default function NewProduct() {
     return (

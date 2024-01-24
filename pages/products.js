@@ -1,8 +1,8 @@
-import Layout from "@/components/Layout/Layout";
+import Layout from "@/components/layout/Layout";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Spinner from "@/components/Basics/Spinner";
+import Spinner from "@/components/common/Spinner";
 
 export default function Products() {
   const [products, setProducts] = useState([]);

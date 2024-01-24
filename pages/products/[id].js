@@ -1,17 +1,17 @@
 
 // 
-import Header from "@/components/LiveProiductView/Header";
+import Header from "@/components/liveProductView/Header";
 // 
 import { mongooseConnect } from "@/lib/mongoose";
 import { Product } from "@/models/ProductView";
 // 
 import Image from "next/image";
 // 
-import ProductImages from "@/components/LiveProiductView/ProductImages";
-import FlyingButton from "@/components/Buttons/MainButton";
+import ProductImages from "@/components/liveProductView/ProductImages";
+import FlyingButton from "@/components/buttons/MainButton";
 
 import { useState, useEffect } from "react";
-import Banner from "@/components/LiveProiductView/Banner";
+import Banner from "@/components/liveProductView/Banner";
 
 
 

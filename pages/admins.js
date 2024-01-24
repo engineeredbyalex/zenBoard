@@ -1,7 +1,7 @@
-import Layout from "@/components/Layout/Layout";
+import Layout from "@/components/layout/Layout";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Spinner from "@/components/Basics/Spinner";
+import Spinner from "@/components/common/Spinner";
 import { prettyDate } from "@/lib/date";
 
 function AdminsPage() {

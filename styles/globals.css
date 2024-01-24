@@ -3,25 +3,22 @@
 @tailwind utilities;
 
 h1{
-    @apply text-[120px]
+    @apply text-[100px]
 }
 h2{
-    @apply text-[75px]
+    @apply text-[62px]
 }
 h3{
-    @apply text-[46px]
+    @apply text-[38px]
 }
 h4{
-    @apply text-[20px] lg:text-[30px]
+    @apply text-[24px] 
 }
 h5{
-    @apply text-[14px] lg:text-[18px]
-}
-h6{
-    @apply text-[16px]
+    @apply text-[14px] 
 }
 p{
-    @apply text-[14px]
+    @apply text-[10px]
 }
 
 .dark_blue_text{

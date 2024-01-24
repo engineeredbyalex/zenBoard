@@ -1,5 +1,5 @@
 import { useSession, signIn, signOut } from "next-auth/react"
-import Nav from "../Basics/Nav";
+import Nav from "../common/NavigationBar";
 import { useState } from "react";
 import GoogleIco from "@/public/googleIco.ico"
 import Image from "next/image";

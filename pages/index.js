@@ -1,6 +1,6 @@
-import Layout from "@/components/Layout/Layout";
-import HomeHeader from "@/components/Basics/HomeHeader";
-import HomeStatsNew from "@/components/Basics/HomeStats";
+import Layout from "@/components/layout/Layout";
+import HomeHeader from "@/components/common/HomeHeader";
+import HomeStatsNew from "@/components/common/HomeStats";
 
 export default function Home() {
   return (
