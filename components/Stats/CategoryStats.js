@@ -33,8 +33,6 @@ export default function Stats() {
             });
         });
 
-        console.log('Category Counts:', counts);
-
         // Convert counts object to array of { categoryId, count } objects
         const countsArray = Object.entries(counts).map(([categoryId, count]) => ({ categoryId, count }));
 
@@ -52,9 +50,9 @@ export default function Stats() {
     }, [orders, categories,]);
 
     return (
-        <div className="h-auto auto flex flex-col items-center justify-start text-left ">
+        <div className="h-auto  w-full lg:w-[25rem] flex flex-col items-center lg:justify-start lg:text-left text-center justify-center">
             <h4 className="black_text font-medium uppercase">Categorii</h4>
-            <div className="text-left flex items-start justify-center gap-5">
+            <div className="text-center lg:text-left flex items-center lg:items-start justify-center gap-5">
                 {categoryCounts.map(({ categoryId, count }) => {
                     const category = categories.find(category => category._id === categoryId);
                     return (

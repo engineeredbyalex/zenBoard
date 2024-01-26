@@ -3,19 +3,19 @@
 @tailwind utilities;
 
 h1{
-    @apply text-[100px]
+    @apply text-[120px]
 }
 h2{
-    @apply text-[62px]
+    @apply text-[74px]
 }
 h3{
-    @apply text-[38px]
+    @apply text-[45px]
 }
 h4{
-    @apply text-[24px] 
+    @apply text-[28px] 
 }
 h5{
-    @apply text-[14px] 
+    @apply text-[17px] 
 }
 p{
     @apply text-[10px]

@@ -112,10 +112,10 @@ export default function ProductForm({
 
   return (
     <form onSubmit={saveProduct} className="p-4">
-      <label className="block">Nume produs</label>
+      <label className="block">Product Name</label>
       <input
         type="text"
-        placeholder="Nume Produs"
+        placeholder="Product Name"
         value={title}
         onChange={(ev) => setTitle(ev.target.value)}
         className="border p-2 my-2 w-full"
@@ -125,7 +125,7 @@ export default function ProductForm({
         onChange={(ev) => setCategory(ev.target.value)}
         className="border p-2 my-2 w-full"
       >
-        <option value="">Fara categorie</option>
+        <option value="">No category</option>
         {categories.length > 0 &&
           categories.map((c) => (
             <option key={c.name} value={c._id}>
@@ -135,7 +135,7 @@ export default function ProductForm({
       </select>
 
       <div className="w-full mb-10">
-        <label className="block">Proprietăți</label>
+        <label className="block"><h5>Properties</h5></label>
         <div className="flex flex-wrap gap-[2rem]">
           {properties.map((property, index) => (
             <div key={index} className="flex flex-wrap gap-[2rem]">
@@ -158,12 +158,12 @@ export default function ProductForm({
               ))}
               <div className="flex items-center  gap-5">
                 <button className="bg-[#000] text-white font-bold  w-[7rem] rounded  h-[3rem]" type="button" onClick={() => addPropertyValue(index)}>
-                  <p>
-                    Adauga valoare
-                  </p>
+                  <h5>
+                    Add Value
+                  </h5>
                 </button>
                 <button className="bg-[#000] text-white font-bold  w-[7rem] rounded  h-[3rem]" type="button" onClick={() => removeProperty(index)}>
-                  <p> Șterge</p>
+                  <h5> Delete</h5>
                 </button>
               </div>
             </div>
@@ -174,11 +174,12 @@ export default function ProductForm({
           onClick={addProperty}
           className="bg-[#000] text-white font-bold  w-[15rem] rounded mt-10 h-[3rem]"
         >
-          Adauga proprietate
+          Add property
         </button>
       </div>
-
+      <label> <h5>Images</h5></label>
       <div className="mb-2 flex flex-wrap gap-1">
+
         <ReactSortable
           list={images}
           className="flex flex-wrap gap-1"
@@ -205,6 +206,7 @@ export default function ProductForm({
             ))}
         </ReactSortable>
         {isUploading && <div className="h-24 flex items-center"></div>}
+
         <label className="h-[200px] w-[200px] cursor-pointer text-center flex flex-col items-center justify-center text-sm gap-1 text-primary rounded-sm bg-white shadow-sm border border-primary">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -220,17 +222,23 @@ export default function ProductForm({
               d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"
             />
           </svg>
-          <div>Adauga imagine</div>
+          <div>Add Image</div>
           <input type="file" onChange={uploadImages} className="hidden" />
         </label>
       </div>
-
+      <label>
+        <h5>Description</h5>
+      </label>
       <textarea
         className="min-h-[30vh] border p-2 my-2 w-full"
         placeholder="description"
         value={description}
         onChange={(ev) => setDescription(ev.target.value)}
       />
+      <h5>Extras</h5>
+      <label>
+        <h5>Price</h5>
+      </label>
       <input
         type="number"
         placeholder="price"
@@ -242,7 +250,7 @@ export default function ProductForm({
         type="submit"
         className="bg-[#000] text-white font-bold py-2 px-4 rounded mt-4"
       >
-        Salvare
+        Save
       </button>
     </form>
   );

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import StatsBox from "../boxes/StatsBox";
-import Grid from "../layout/Grid";
 import { subHours } from "date-fns";
 import CategoryStats from "../stats/CategoryStats";
 import TopSalesStats from "../stats/TopSalesStats";
@@ -86,8 +85,8 @@ function HomeStatsNew() {
         );
     }
     return (
-        <div className="flex flex-col gap-5 mt-10 ">
-            <div className="flex gap-10">
+        <div className="flex flex-col gap-10 mt-10 min-h-screen">
+            <div className="flex gap-10 lg:flex-row flex-col items-center justify-enevly overflow-x-hidden h-auto py-10">
                 <StatsBox
                     background='#252525'
                     text="black_text"
@@ -104,8 +103,8 @@ function HomeStatsNew() {
                     value_week={ordersThisWeek().length}
                 />
             </div>
-            <div className="mt-10 lg:flex flex-row gap-10 w-full items-center justify-center">
-                <CategoryStats />
+            <div className="flex gap-10 lg:flex-row flex-col items-center justify-enevly overflow-x-hidden h-auto py-10">
+                {/* <CategoryStats /> */}
                 <TopSalesStats />
                 <CityStats />
             </div>

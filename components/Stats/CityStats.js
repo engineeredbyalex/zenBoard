@@ -44,9 +44,9 @@ export default function CityStats() {
     }, [orders,]);
 
     return (
-        <div className="h-[30vh] w-[25rem] flex flex-col items-center justify-start text-center">
+        <div className="h-[30vh]  w-full lg:w-[25rem] flex flex-col items-center lg:justify-start lg:text-left text-center justify-center">
             <h4 className=" black_text font-medium uppercase text-left">Top 3 orașe după numărul de comenzi</h4>
-            <div className="text-left flex items-start justify-center gap-5">
+            <div className="text-center lg:text-left flex items-center lg:items-start justify-center gap-5">
                 {topCities.map(({ city, count }) => (
                     <div key={city}>
                         <h5 className="grey_text">Oraș: {city}</h5>

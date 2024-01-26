@@ -14,8 +14,6 @@ export default function HomeHeader() {
   const { data: session } = useSession();
   const [userMenuToggle, setUserMenuToggle] = useState(false);
   const [notificationToggle, setNotificationToggle] = useState(false);
-
-  // Sample notifications for testing
   const notifications = ["Notification 1", "Notification 2", "Notification 3"];
 
   return (

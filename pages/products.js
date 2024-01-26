@@ -46,9 +46,9 @@ export default function Products() {
           {products.map(product => (
             <tr key={product._id}>
               <td>
-                <p className="font-normla uppercase dark_blue_text">
+                <h5 className="font-normla uppercase dark_blue_text">
                   {product.title}
-                </p>
+                </h5>
               </td>
               <td className=" flex gap-5">
                 <Link className="btn-primary" href={'/products/edit/' + product._id}>
