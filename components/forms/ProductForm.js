@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import { ReactSortable } from "react-sortablejs";
+import Image from "next/image";
 
 export default function ProductForm({
   _id,
@@ -191,7 +192,7 @@ export default function ProductForm({
                 key={link}
                 className="h-[200px] w-[200px] bg-white p-4 shadow-sm rounded-sm border border-gray-200 flex flex-col items-center justify-center"
               >
-                <img
+                <Image
                   src={link}
                   alt=""
                   className="rounded-lg w-[150px] h-[150px]"

@@ -1,5 +1,3 @@
-import React from 'react';
-
 function StatsBox(props) {
     const isPositiveWeek = props.percent_value > 0;
     const isPositiveMonth = props.value_week > 0;

@@ -41,7 +41,7 @@ export default function CityStats() {
 
     useEffect(() => {
         calculateCityCounts();
-    }, [orders,]);
+    }, [orders, calculateCityCounts]);
 
     return (
         <div className="h-[30vh]  w-full lg:w-[25rem] flex flex-col items-center lg:justify-start lg:text-left text-center justify-center">

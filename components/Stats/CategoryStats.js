@@ -47,7 +47,7 @@ export default function Stats() {
 
     useEffect(() => {
         calculateCategoryCounts();
-    }, [orders, categories,]);
+    }, [orders, categories, calculateCategoryCounts]);
 
     return (
         <div className="h-auto  w-full lg:w-[25rem] flex flex-col items-center lg:justify-start lg:text-left text-center justify-center">
