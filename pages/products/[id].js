@@ -5,8 +5,6 @@ import Header from "@/components/liveProductView/Header";
 import { mongooseConnect } from "@/lib/mongoose";
 import { Product } from "@/models/ProductView";
 // 
-import Image from "next/image";
-// 
 import ProductImages from "@/components/liveProductView/ProductImages";
 import FlyingButton from "@/components/buttons/MainButton";
 
