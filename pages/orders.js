@@ -30,11 +30,12 @@ export default function OrdersPage() {
 
   return (
     <Layout>
-      <h3 className="uppercase grey_text">Orders</h3>
-
-      <div className="mb-10">
+      <div className="flex text-center items-center justify-center">
+        <h3 className="uppercase grey_text">Orders</h3>
+      </div>
+      <div className="mb-10 flex items-center justify-center flex-col">
         <h4 className="uppercase grey_text font-light">Stripe</h4>
-        <div className="flex flex-row items-start gap-[15px]">
+        <div className="flex flex-col lg:flex-row items-start gap-5">
           <button className="bg-black p-2 rounded-lg text-white w-[15rem]">
             <Link target="_blank" href={'https://dashboard.stripe.com/payments'}>See Stripe Orders</Link>
           </button>
@@ -46,7 +47,7 @@ export default function OrdersPage() {
           </button>
         </div>
       </div>
-      <table className="basic">
+      <table >
         <thead>
           <tr>
             <th>Date</th>

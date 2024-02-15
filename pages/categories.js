@@ -107,18 +107,20 @@ function Categories() {
 
   return (
     <Layout>
-      <h3 className="uppercase grey_text">Categorii</h3>
-      <label className=" uppercase grey_text mt-10 mb-10">
+      <div className="text-center">
+        <h3 className="uppercase grey_text">Categories</h3>
+      </div>
+      <label className=" uppercase grey_text mt-10 mb-10 flex items-center justify-center">
         {editedCategory
-          ? `Editează categoria ${editedCategory.name}`
-          : 'Adaugă o categorie nouă'}
+          ? `Edit category : ${editedCategory.name}`
+          : 'Add a new category'}
       </label>
       <form onSubmit={saveCategory}>
-        <div className="flex gap-1 mt-10 mb-10">
+        <div className="flex items-center justify-center gap-1 mt-10 mb-10 flex-col lg:flex-row">
           <input
             className="w-[20rem] light_grey_background py-3 px-3"
             type="text"
-            placeholder={'Nume categorie'}
+            placeholder={'Category name'}
             onChange={ev => setName(ev.target.value)}
             value={name} />
           <select
@@ -131,16 +133,18 @@ function Categories() {
             ))}
           </select>
         </div>
-        <div className="mb-2">
-          <label className="block uppercase grey_text">Proprietăți</label>
+        <div className="mb-2 flex flex-col items-center justify-center">
+          <label className="block uppercase grey_text"><h4>Properties</h4></label>
           <button
             onClick={addProperty}
             type="button"
-            className="btn-primary text-sm mb-2">
-            Adaugă o proprietate nouă
+            className="btn-primary mb-2">
+            <h5>
+              Add a new property
+            </h5>
           </button>
           {properties.length > 0 && properties.map((property, index) => (
-            <div key={index} className="flex gap-1 mb-2">
+            <div key={index} className="flex gap-1 mb-2 items-center justify-center">
               <input type="text"
                 value={property.name}
                 className="mb-0"
@@ -159,12 +163,14 @@ function Categories() {
                 onClick={() => removeProperty(index)}
                 type="button"
                 className="btn-red">
-                Șterge
+                <h5>
+                  Delete
+                </h5>
               </button>
             </div>
           ))}
         </div>
-        <div className="flex gap-1">
+        <div className="flex gap-1 mb-2 items-center justify-center">
           {editedCategory && (
             <button
               type="button"
@@ -174,11 +180,13 @@ function Categories() {
                 setParentCategory('');
                 setProperties([]);
               }}
-              className="btn-primary">Anulează</button>
+              className="btn-primary"><h5>Cancel</h5></button>
           )}
           <button type="submit"
             className="btn-primary py-1 rounded-lg">
-            Salvează
+            <h5>
+              Save
+            </h5>
           </button>
         </div>
       </form>
@@ -186,8 +194,8 @@ function Categories() {
         <table className="basic mt-4">
           <thead>
             <tr>
-              <td>Nume categorie</td>
-              <td>Categorie principală</td>
+              <td>Category name</td>
+              <td>Main category</td>
               <td></td>
             </tr>
           </thead>
@@ -210,11 +218,11 @@ function Categories() {
                     onClick={() => editCategory(category)}
                     className="btn-primary mr-1"
                   >
-                    Editează
+                    Edit
                   </button>
                   <button
                     onClick={() => deleteCategory(category)}
-                    className="btn-red">Șterge</button>
+                    className="btn-red">Delete</button>
                 </td>
               </tr>
             ))}

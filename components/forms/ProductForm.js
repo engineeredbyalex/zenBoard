@@ -180,7 +180,6 @@ export default function ProductForm({
       </div>
       <label> <h5>Images</h5></label>
       <div className="mb-2 flex flex-wrap gap-1">
-
         <ReactSortable
           list={images}
           className="flex flex-wrap gap-1"
@@ -192,7 +191,7 @@ export default function ProductForm({
                 key={link}
                 className="h-[200px] w-[200px] bg-white p-4 shadow-sm rounded-sm border border-gray-200 flex flex-col items-center justify-center"
               >
-                <Image
+                <img
                   src={link}
                   alt=""
                   className="rounded-lg w-[150px] h-[150px]"

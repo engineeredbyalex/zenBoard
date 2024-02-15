@@ -5,22 +5,23 @@ function StatsBox(props) {
     const textColorMonth = isPositiveMonth ? 'green_text' : 'red_text';
 
     return (
-        <div className={`w-[22rem] h-[10rem] shadow-xl rounded-xl ${props.background}`}>
-            <div className='ml-5  flex flex-col justify-evenly h-full'>
-                <h5 className={` uppercase font-light ${props.text} `}>{props.title}</h5>
-                <h4 className={` uppercase font-bold  ${props.text}`}>
+        <div className="small_box">
+            <div className='flex flex-col items-start justify-center'>
+                <h5 className="">{props.title}</h5>
+                <h4 className="">
                     {props.value}
                 </h4>
-                <div className='flex flex-row w-full items-center justify-between'>
-                    <p className={`white_text uppercase  ${textColorMonth}`}>
-                        {props.percent_value}% această lună
-                    </p>
-                    <p className={`white_text uppercase mr-5  ${textColorWeek}`}>
-                        {props.value_week}% această săptamână
-                    </p>
+                <div className=''>
+                    <h5 className={textColorWeek}>
+                        {props.percent_value ? (`${props.percent_value}% această lună`) : (null)}
+
+                    </h5>
+                    <h5 className={textColorWeek}>
+                        {props.percent_value ? (`${props.percent_value}% această săptamână`) : (null)}
+                    </h5>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 

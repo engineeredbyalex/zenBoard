@@ -17,9 +17,9 @@ export default function HomeHeader() {
   const notifications = ["Notification 1", "Notification 2", "Notification 3"];
 
   return (
-    <div className=" h-[10vh] flex items-center justify-between">
-      <h2>
-        <div className=" hidden lg:flex gap-2 items-center">
+    <div className=" h-[10vh] flex items-center justify-between ">
+      <div className="hidden lg:flex gap-2 items-center ">
+        <h2>
           <Image width={50} height={50} src={session?.user?.image} alt="" className="w-6 h-6 rounded-md sm:hidden" />
           <div>
             <h4 className="black_text  leading-5 lg:leading-10">
@@ -27,11 +27,11 @@ export default function HomeHeader() {
             </h4>
             <h5 className="grey_text leading-3">Current state of your shop</h5>
           </div>
-        </div>
-      </h2>
+        </h2>
+      </div>
       <div className="px-3 py-1 relative">
 
-        <div className="flex gap-1 text-black items-center">
+        <div className="flex gap-1 text-black items-center z-[3]">
           {/* <div className="px-3 py-1 relative bottom-2 lg:right-[5rem]">
             <div>
               <div className="red_background w-[1.2rem] h-[1.2rem] rounded-full relative top-4 left-4 flex items-center justify-center">
@@ -51,21 +51,21 @@ export default function HomeHeader() {
           </div> */}
           <Image width={50} height={50} src={session?.user?.image} alt="" className="w-[40px] h-[40px] rounded-xl" />
           <span className="px-2">
-            <p className="grey_text">{session?.user?.name}</p>
+            <h5 className="grey_text">{session?.user?.name}</h5>
           </span>
           <button onClick={() => setUserMenuToggle(!userMenuToggle)}>
             <AiOutlineCaretDown size={20} />
           </button>
         </div>
-        <div className={`grey_text absolute right-[0rem] top-full p-2 ${userMenuToggle ? "block" : "hidden"}`}>
+        <div className={`grey_text absolute right-[0rem] top-full p-5 bg-bgGray ${userMenuToggle ? "block" : "hidden"}`}>
           <Link href={'/account'}>
-            <p>Account</p>
+            <h5>Account</h5>
           </Link>
           <Link href={'/support'}>
-            <p>Support</p>
+            <h5>Support</h5>
           </Link>
           <Link onClick={() => signOut('google')} href={'/'}>
-            <p>Logout</p>
+            <h5>Logout</h5>
           </Link>
         </div>
       </div>

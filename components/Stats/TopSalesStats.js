@@ -49,19 +49,18 @@ export default function TopSalesStats() {
 
     useEffect(() => {
         calculateProductCounts();
-    }, [orders, products, calculateCityCounts]);
+    }, [orders, products]);
 
     return (
-        <div className="h-[30vh] w-full lg:w-[25rem] flex flex-col items-center lg:justify-start lg:text-left text-center justify-center ">
-            <h4 className=" black_text  font-medium uppercase">Top 3 cele mai vândute produse</h4>
-            <div className="text-center lg:text-left flex items-center lg:items-start justify-center gap-5">
+        <div className="box">
+            <h4 className=" black_text font-medium uppercase">Top 3 most sold prodcuts</h4>
+            <div >
                 {topProducts.map(({ productId, count }) => {
                     const product = products.find(product => product._id === productId);
                     return (
-                        <div key={productId}>
-                            <h5 className="grey_text">Nume: {product ? product.title : 'Unknown'}</h5>
-                            <h5 className="grey_text">Cantitate: {count}</h5>
-
+                        <div className="text-center lg:text-left flex flex-col items-center lg:items-start justify-center gap-5" key={productId}>
+                            <h5 className="grey_text">Name: {product ? product.title : 'Unknown'}</h5>
+                            <h5 className="grey_text">Quanitity: {count}</h5>
                         </div>
                     );
                 })}

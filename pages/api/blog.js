@@ -5,7 +5,6 @@ import { isAdminRequest } from "@/pages/api/auth/[...nextauth]";
 export default async function handle(req, res) {
     try {
         console.log('Received request:', req.body);
-        console.log('Properties:', req.body.properties);
     } catch (error) {
         console.error('Error handling request:', error);
         res.status(500).json({ error: 'Internal Server Error' });
@@ -28,19 +27,20 @@ export default async function handle(req, res) {
         }
 
         if (method === "POST") {
-            const { title, } = req.body;
-            const blogDoc = await Product.create({
-                title, 
+            const { title, headingOne } = req.body;
+            const blogDoc = await Blog.create({
+                title, headingOne
+
             });
             res.json(blogDoc);
         }
 
         if (method === "PUT") {
-            const { title, } = req.body;
+            const { title, headingOne } = req.body;
             await Blog.updateOne(
                 { _id },
                 {
-                    title,
+                    title, headingOne
                 }
             );
             res.json(true);

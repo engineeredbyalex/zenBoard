@@ -50,7 +50,7 @@ export default function Stats() {
     }, [orders, categories, calculateCategoryCounts]);
 
     return (
-        <div className="h-auto  w-full lg:w-[25rem] flex flex-col items-center lg:justify-start lg:text-left text-center justify-center">
+        <div className="box">
             <h4 className="black_text font-medium uppercase">Categorii</h4>
             <div className="text-center lg:text-left flex items-center lg:items-start justify-center gap-5">
                 {categoryCounts.map(({ categoryId, count }) => {

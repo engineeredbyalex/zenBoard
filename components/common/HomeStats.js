@@ -7,10 +7,9 @@ import TopSalesStats from "../stats/TopSalesStats";
 import CityStats from "../stats/CityStats";
 
 
-function HomeStatsNew() {
+function HomeStats() {
     const [orders, setOrders] = useState([]);
     const [products, setProducts] = useState([]);
-    const { data: session } = useSession();
 
     useEffect(() => {
         axios.get("/api/orders").then((res) => {
@@ -84,26 +83,21 @@ function HomeStatsNew() {
         );
     }
     return (
-        <div className="flex flex-col gap-10 mt-10 min-h-screen">
-            <div className="flex gap-10 lg:flex-row flex-col items-center justify-enevly overflow-x-hidden h-auto py-10">
+        <div className="flex flex-col gap-5 mt-[2rem] min-h-screen">
+            <div className="flex gap-5 lg:flex-row flex-col items-center justify-enevly overflow-x-hidden h-auto py-5">
                 <StatsBox
-                    background='#252525'
-                    text="black_text"
                     title="Vânzări totale"
                     value={totalOrdersRevenue()}
                     percent_value={percentageIncreaseThisMonth()}
                     value_week={percentageIncreaseThisWeek()} />
                 <StatsBox
-                    background='#fff'
-                    text="black_text"
                     title="Comenzi totale"
                     value={totalOrder()}
                     percent_value={ordersThisMonth().length}
                     value_week={ordersThisWeek().length}
                 />
             </div>
-            <div className="flex gap-10 lg:flex-row flex-col items-center justify-enevly overflow-x-hidden h-auto py-10">
-                {/* <CategoryStats /> */}
+            <div className="flex gap-5 lg:flex-row flex-col items-center justify-enevly overflow-x-hidden h-auto py-5">
                 <TopSalesStats />
                 <CityStats />
             </div>
@@ -111,4 +105,4 @@ function HomeStatsNew() {
     );
 }
 
-export default HomeStatsNew;
+export default HomeStats;
