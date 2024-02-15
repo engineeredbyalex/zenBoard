@@ -25,15 +25,8 @@ export default function CityStats() {
                 }
             }
         });
-
-
-        // Convert cityCounts object to array of { city, count } objects
         const countsArray = Object.entries(cityCounts).map(([city, count]) => ({ city, count }));
-
-        // Sort the array by count in descending order
         countsArray.sort((a, b) => b.count - a.count);
-
-        // Set the top 3 cities or all cities if there are fewer than 3
         setTopCities(countsArray.slice(0, 3));
 
         return countsArray;
@@ -41,7 +34,7 @@ export default function CityStats() {
 
     useEffect(() => {
         calculateCityCounts();
-    }, [orders, calculateCityCounts]);
+    }, [orders]);
 
     return (
         <div className="box">

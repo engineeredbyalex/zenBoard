@@ -2,7 +2,7 @@ import { useSession, signIn, signOut } from "next-auth/react"
 import Nav from "../common/NavigationBar";
 import { useState } from "react";
 import GoogleIco from "@/public/googleIco.ico"
-import Image from "next/image";
+// import Image from "next/image";
 
 
 
@@ -23,7 +23,7 @@ export default function Layout({ children }) {
           </div>
           <div className=" w-[90%] flex flex-col items-center justify-center gap-3 mt-3">
             <button className="py-2 w-full rounded-md border-[1px] border-slate-500 flex items-center justify-start gap-[15%] hover:bg-black hover:text-white transition-all ease-in-out" onClick={() => signIn('google')} >
-              <Image className="ml-5" src={GoogleIco} alt="google icon" />
+              {/* <Image className="ml-5" src={GoogleIco} alt="google icon" /> */}
               <h5> Continue with Google</h5>
             </button>
           </div>

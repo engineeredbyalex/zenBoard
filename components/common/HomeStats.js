@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useSession } from "next-auth/react";
 import { subHours } from "date-fns";
 import StatsBox from "../boxes/StatsBox";
 import TopSalesStats from "../stats/TopSalesStats";
